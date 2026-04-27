@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Valiflo custom apparel catalog — embroidery and DTF transfer decoration on premium blanks.">
+<title>Valiflo Apparel Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0477BE;--dark:#02304D;--orange:#C16C09;--paper:#F0F4F8;--rule:#C8D8E8;--card:#fff;--muted:#6080A0;--chip-bg:#E0EAF4;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);font-family:'DM Sans',sans-serif;color:var(--dark);}
+.site-header{background:var(--dark);color:#fff;padding:32px 48px;}
+.header-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.logo-area h1{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1;color:#fff;}
+.logo-area .tag{margin-top:6px;font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;}
+.legend{display:flex;gap:16px;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.8);}
+.pip{width:9px;height:9px;border-radius:50%;}
+.pip-dtf{background:var(--blue);}
+.pip-emb{background:#F5A040;}
+.logo-banner{background:var(--blue);color:#fff;padding:13px 48px;font-size:.82rem;font-weight:500;display:flex;align-items:center;gap:10px;line-height:1.5;}
+.logo-banner svg{flex-shrink:0;opacity:.85;}
+.filter-bar{background:#fff;border-bottom:1px solid var(--rule);display:flex;}
+.ftab{flex:1;padding:13px 8px;text-align:center;font-size:.74rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--muted);border-bottom:3px solid transparent;transition:color .15s,border-color .15s;font-family:inherit;}
+.ftab:hover{color:var(--dark);}
+.ftab.active{color:var(--dark);border-bottom-color:var(--orange);}
+.ftab-men.active{border-bottom-color:var(--blue);}
+.ftab-women.active{border-bottom-color:#8B3D6A;}
+.count-bar{padding:10px 48px;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--rule);}
+.card{background:var(--card);display:flex;flex-direction:column;}
+.card.hidden{display:none;}
+.iw{position:relative;aspect-ratio:3/4;overflow:hidden;background:#E8EFF5;}
+.iw img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.card:hover .iw img{transform:scale(1.04);}
+.bd{position:absolute;top:10px;left:10px;padding:3px 7px;border-radius:3px;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;}
+.bd-dtf{background:var(--blue);}
+.bd-emb{background:var(--dark);}
+.gbadge{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:rgba(2,48,77,.55);color:#fff;font-size:.64rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.pt{position:absolute;bottom:10px;right:10px;background:var(--dark);color:#fff;font-family:'DM Serif Display',serif;font-size:1.15rem;padding:4px 11px;border-radius:3px;}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.bl{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);}
+.nm{font-family:'DM Serif Display',serif;font-size:1.05rem;line-height:1.25;color:var(--dark);}
+.sk{font-size:.68rem;color:var(--muted);font-weight:500;margin-top:-2px;}
+.rl{height:1px;background:var(--rule);margin:2px 0;}
+.ir{display:flex;gap:8px;align-items:flex-start;}
+.colors-ir{align-items:flex-start;}
+.il{font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);min-width:42px;padding-top:3px;flex-shrink:0;}
+.chips{display:flex;flex-wrap:wrap;gap:3px;}
+.chip{background:var(--chip-bg);border-radius:3px;padding:2px 7px;font-size:.65rem;font-weight:600;color:var(--dark);}
+.size-note{font-size:.65rem;color:var(--muted);font-style:italic;margin-top:-3px;padding-left:50px;}
+.color-cloud{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
+.pill{display:inline-flex;align-items:center;gap:4px;background:var(--chip-bg);border-radius:20px;padding:2px 8px 2px 4px;font-size:.63rem;font-weight:500;color:#334;white-space:nowrap;cursor:default;transition:background .15s;}
+.pill:hover{background:#C8D8EC;}
+.dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+.pnote{font-size:.68rem;color:var(--muted);font-style:italic;padding-left:50px;line-height:1.5;margin-top:-2px;}
+.vl{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;margin-top:auto;padding-top:6px;}
+.vl:hover{text-decoration:underline;}
+footer{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:20px 48px;font-size:.72rem;letter-spacing:.08em;}
+@media(max-width:640px){
+  .site-header,.logo-banner,.count-bar,footer{padding-left:18px;padding-right:18px;}
+  .grid{grid-template-columns:1fr 1fr;}
+  .size-note,.pnote{padding-left:0;}
+}
+@media(max-width:380px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <h1>Valiflo Apparel Catalog</h1>
+      <p class="tag">13 Styles &nbsp;·&nbsp; Custom Decoration Pricing</p>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="pip pip-dtf"></span>DTF Transfer</div>
+      <div class="legend-item"><span class="pip pip-emb"></span>Embroidery</div>
+    </div>
+  </div>
+</header>
+
+<div class="logo-banner">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>
+  The Valiflo logo will be added to the <strong>&nbsp;left breast&nbsp;</strong> of each item by default — embroidered for polo and fleece styles, DTF for tees. Just let us know at order time if you'd like a different placement, size, or no logo.
+</div>
+
+<div class="filter-bar">
+  <button class="ftab ftab-all active" onclick="filter('all')">All Styles</button>
+  <button class="ftab ftab-men" onclick="filter('men')">Men</button>
+  <button class="ftab ftab-women" onclick="filter('women')">Women</button>
+</div>
+<div class="count-bar" id="count-bar">Showing all 13 styles</div>
+
+<div class="grid" id="grid">
+
+<div class="card" data-gender="unisex">
+  <div class="iw">
+    <img src="assets/img/ce10l.jpg" alt="Unisex Capital Long-Sleeve Performance Tee" loading="lazy">
+    <span class="bd bd-dtf">DTF</span>
+    <span class="gbadge" title="Unisex">U</span>
+    <span class="pt">$10</span>
+  </div>
+  <div class="body">
+    <div class="bl">Core365</div>
+    <div class="nm">Unisex Capital Long-Sleeve Performance Tee</div>
+    <div class="sk">CE10L</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span><span class="chip">4XL</span><span class="chip">5XL</span><span class="chip">6XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Carbon"><span class="dot" style="background:#3A3A3A;"></span>Carbon</span><span class="pill" title="Classic Navy"><span class="dot" style="background:#1B2B4A;"></span>Classic Navy</span><span class="pill" title="Classic Red"><span class="dot" style="background:#CC2222;"></span>Classic Red</span><span class="pill" title="Platinum"><span class="dot" style="background:#C8C8C8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Platinum</span><span class="pill" title="Safety Yellow"><span class="dot" style="background:#FFD700;"></span>Safety Yellow</span><span class="pill" title="True Royal"><span class="dot" style="background:#1F5DBF;"></span>True Royal</span><span class="pill" title="Acid Green"><span class="dot" style="background:#B8CC00;"></span>Acid Green</span><span class="pill" title="Bright Magenta"><span class="dot" style="background:#CC0088;"></span>Bright Magenta</span><span class="pill" title="Burgundy"><span class="dot" style="background:#6B1020;"></span>Burgundy</span><span class="pill" title="Clear Teal"><span class="dot" style="background:#00A89A;"></span>Clear Teal</span><span class="pill" title="Columbia Blue"><span class="dot" style="background:#8BBAD8;"></span>Columbia Blue</span><span class="pill" title="Forest"><span class="dot" style="background:#1B5232;"></span>Forest</span><span class="pill" title="Military Green"><span class="dot" style="background:#4A5440;"></span>Military Green</span><span class="pill" title="Safety Orange"><span class="dot" style="background:#FF6600;"></span>Safety Orange</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/core365/ce10l" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="unisex">
+  <div class="iw">
+    <img src="assets/img/ss3000.jpg" alt="Unisex Midweight Crewneck Sweatshirt" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Unisex">U</span>
+    <span class="pt">$30</span>
+  </div>
+  <div class="body">
+    <div class="bl">Independent Trading Co.</div>
+    <div class="nm">Unisex Midweight Crewneck Sweatshirt</div>
+    <div class="sk">SS3000</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Charcoal"><span class="dot" style="background:#454545;"></span>Charcoal</span><span class="pill" title="Navy"><span class="dot" style="background:#1B2B4A;"></span>Navy</span><span class="pill" title="Red"><span class="dot" style="background:#CC2222;"></span>Red</span><span class="pill" title="Royal"><span class="dot" style="background:#1652B5;"></span>Royal</span><span class="pill" title="Maroon"><span class="dot" style="background:#6B1020;"></span>Maroon</span><span class="pill" title="Forest Green"><span class="dot" style="background:#1B5232;"></span>Forest Green</span><span class="pill" title="Gold"><span class="dot" style="background:#D4950A;"></span>Gold</span><span class="pill" title="Bone"><span class="dot" style="background:#E8E0D0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Bone</span><span class="pill" title="Sandstone"><span class="dot" style="background:repeating-linear-gradient(45deg,#ccc,#ccc 2px,#eee 2px,#eee 5px);"></span>Sandstone</span><span class="pill" title="Storm Blue"><span class="dot" style="background:#3D6080;"></span>Storm Blue</span><span class="pill" title="Mint"><span class="dot" style="background:#AAD8C0;"></span>Mint</span><span class="pill" title="Lavender"><span class="dot" style="background:#B090C8;"></span>Lavender</span><span class="pill" title="Light Pink"><span class="dot" style="background:#FFB6C1;"></span>Light Pink</span><span class="pill" title="Grey Heather"><span class="dot" style="background:#9A9A9A;"></span>Grey Heather</span><span class="pill" title="Gunmetal Heather"><span class="dot" style="background:#686868;"></span>Gunmetal Heather</span><span class="pill" title="Charcoal Heather"><span class="dot" style="background:#555555;"></span>Charcoal Heather</span><span class="pill" title="Classic Navy Heather"><span class="dot" style="background:#2A3B5A;"></span>Classic Navy Heather</span><span class="pill" title="Royal Heather"><span class="dot" style="background:#2050A0;"></span>Royal Heather</span><span class="pill" title="Army Heather"><span class="dot" style="background:#5A5A40;"></span>Army Heather</span><span class="pill" title="Forest Camo"><span class="dot" style="background:repeating-linear-gradient(45deg,#3A4A28,#3A4A28 3px,#5A6A38 3px,#5A6A38 6px);"></span>Forest Camo</span><span class="pill" title="Black Camo"><span class="dot" style="background:repeating-linear-gradient(45deg,#3A4A28,#3A4A28 3px,#5A6A38 3px,#5A6A38 6px);"></span>Black Camo</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/independent_trading_co/ss3000" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="unisex">
+  <div class="iw">
+    <img src="assets/img/g8800.jpg" alt="Unisex DryBlend® Jersey Polo" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Unisex">U</span>
+    <span class="pt">$30</span>
+  </div>
+  <div class="body">
+    <div class="bl">Gildan</div>
+    <div class="nm">Unisex DryBlend® Jersey Polo</div>
+    <div class="sk">8800</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span><span class="chip">4XL</span><span class="chip">5XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Ash"><span class="dot" style="background:#D0D0D0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Ash</span><span class="pill" title="Carolina Blue"><span class="dot" style="background:#5BA4CF;"></span>Carolina Blue</span><span class="pill" title="Dark Heather"><span class="dot" style="background:#606060;"></span>Dark Heather</span><span class="pill" title="Forest Green"><span class="dot" style="background:#1B5232;"></span>Forest Green</span><span class="pill" title="Gold"><span class="dot" style="background:#D4950A;"></span>Gold</span><span class="pill" title="Graphite Heather"><span class="dot" style="background:#707070;"></span>Graphite Heather</span><span class="pill" title="Kelly Green"><span class="dot" style="background:#4CBB17;"></span>Kelly Green</span><span class="pill" title="Light Blue"><span class="dot" style="background:#90C0D8;"></span>Light Blue</span><span class="pill" title="Maroon"><span class="dot" style="background:#6B1020;"></span>Maroon</span><span class="pill" title="Navy"><span class="dot" style="background:#1B2B4A;"></span>Navy</span><span class="pill" title="Orange"><span class="dot" style="background:#FF6B00;"></span>Orange</span><span class="pill" title="Purple"><span class="dot" style="background:#5A0090;"></span>Purple</span><span class="pill" title="Red"><span class="dot" style="background:#CC2222;"></span>Red</span><span class="pill" title="Royal"><span class="dot" style="background:#1652B5;"></span>Royal</span><span class="pill" title="Sand"><span class="dot" style="background:#D4BE8C;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Sand</span><span class="pill" title="Sapphire"><span class="dot" style="background:#0F52BA;"></span>Sapphire</span><span class="pill" title="Sport Grey"><span class="dot" style="background:#A0A0A0;"></span>Sport Grey</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/gildan/8800" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="unisex">
+  <div class="iw">
+    <img src="assets/img/nl6210.jpg" alt="Unisex CVC T-Shirt" loading="lazy">
+    <span class="bd bd-dtf">DTF</span>
+    <span class="gbadge" title="Unisex">U</span>
+    <span class="pt">$12</span>
+  </div>
+  <div class="body">
+    <div class="bl">Next Level</div>
+    <div class="nm">Unisex CVC T-Shirt</div>
+    <div class="sk">6210</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Apple Green"><span class="dot" style="background:#7DC95E;"></span>Apple Green</span><span class="pill" title="Banana Cream"><span class="dot" style="background:repeating-linear-gradient(45deg,#ccc,#ccc 2px,#eee 2px,#eee 5px);"></span>Banana Cream</span><span class="pill" title="Bondi Blue"><span class="dot" style="background:#0095AA;"></span>Bondi Blue</span><span class="pill" title="Cardinal"><span class="dot" style="background:#8B1A2A;"></span>Cardinal</span><span class="pill" title="Charcoal"><span class="dot" style="background:#454545;"></span>Charcoal</span><span class="pill" title="Cream"><span class="dot" style="background:#FFFDD0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Cream</span><span class="pill" title="Dark Heather Gray"><span class="dot" style="background:#6A6A6A;"></span>Dark Heather Gray</span><span class="pill" title="Espresso"><span class="dot" style="background:#4A2C17;"></span>Espresso</span><span class="pill" title="Heather Columbia Blue"><span class="dot" style="background:#8BBAD8;"></span>Heather Columbia Blue</span><span class="pill" title="Heather Cool Blue"><span class="dot" style="background:#9AB5D0;"></span>Heather Cool Blue</span><span class="pill" title="Heather Forest Green"><span class="dot" style="background:#5A7A5A;"></span>Heather Forest Green</span><span class="pill" title="Heather Heavy Metal"><span class="dot" style="background:#555565;"></span>Heather Heavy Metal</span><span class="pill" title="Heather Light Pink"><span class="dot" style="background:#F0B8C0;"></span>Heather Light Pink</span><span class="pill" title="Heather Maroon"><span class="dot" style="background:#8B3040;"></span>Heather Maroon</span><span class="pill" title="Heather Mauve"><span class="dot" style="background:#C090A0;"></span>Heather Mauve</span><span class="pill" title="Heather Redwood"><span class="dot" style="background:#8B4040;"></span>Heather Redwood</span><span class="pill" title="Heather Seafoam"><span class="dot" style="background:#A8D8C8;"></span>Heather Seafoam</span><span class="pill" title="Heather Shiitake"><span class="dot" style="background:#C8B8A8;"></span>Heather Shiitake</span><span class="pill" title="Heather Slate Blue"><span class="dot" style="background:#7080A8;"></span>Heather Slate Blue</span><span class="pill" title="Heather Tan"><span class="dot" style="background:#C8A878;"></span>Heather Tan</span><span class="pill" title="Ice Blue"><span class="dot" style="background:#B8DDF0;"></span>Ice Blue</span><span class="pill" title="Indigo"><span class="dot" style="background:#3D3D8B;"></span>Indigo</span><span class="pill" title="Kelly Green"><span class="dot" style="background:#4CBB17;"></span>Kelly Green</span><span class="pill" title="Light Olive"><span class="dot" style="background:#B5B870;"></span>Light Olive</span><span class="pill" title="Midnight Navy"><span class="dot" style="background:#151B2A;"></span>Midnight Navy</span><span class="pill" title="Military Green"><span class="dot" style="background:#4A5440;"></span>Military Green</span><span class="pill" title="Mint"><span class="dot" style="background:#AAD8C0;"></span>Mint</span><span class="pill" title="Neon Green"><span class="dot" style="background:#39FF14;"></span>Neon Green</span><span class="pill" title="Neon Yellow"><span class="dot" style="background:#F0F000;"></span>Neon Yellow</span><span class="pill" title="Orange"><span class="dot" style="background:#FF6B00;"></span>Orange</span><span class="pill" title="Purple Rush"><span class="dot" style="background:#7030A0;"></span>Purple Rush</span><span class="pill" title="Red"><span class="dot" style="background:#CC2222;"></span>Red</span><span class="pill" title="Royal"><span class="dot" style="background:#1652B5;"></span>Royal</span><span class="pill" title="Sand"><span class="dot" style="background:#D4BE8C;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Sand</span><span class="pill" title="Silk"><span class="dot" style="background:#E8D8C0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>Silk</span><span class="pill" title="Stone Gray"><span class="dot" style="background:#8A8A8A;"></span>Stone Gray</span><span class="pill" title="Storm"><span class="dot" style="background:#607080;"></span>Storm</span><span class="pill" title="Tahiti Blue"><span class="dot" style="background:#0078C0;"></span>Tahiti Blue</span><span class="pill" title="Teal"><span class="dot" style="background:#008080;"></span>Teal</span><span class="pill" title="Turquoise"><span class="dot" style="background:#40E0D0;"></span>Turquoise</span><span class="pill" title="Warm Gray"><span class="dot" style="background:#B8A898;"></span>Warm Gray</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/next_level/6210" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="men">
+  <div class="iw">
+    <img src="assets/img/a430.jpg" alt="Men's Performance Piqué Polo" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Men's">M</span>
+    <span class="pt">$45</span>
+  </div>
+  <div class="body">
+    <div class="bl">adidas</div>
+    <div class="nm">Men's Performance Piqué Polo</div>
+    <div class="sk">A430</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span><span class="chip">4XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Almost Yellow"><span class="dot" style="background:#EEE040;"></span>Almost Yellow</span><span class="pill" title="Blue Fusion"><span class="dot" style="background:#4B80C0;"></span>Blue Fusion</span><span class="pill" title="Bright Orange"><span class="dot" style="background:#F56400;"></span>Bright Orange</span><span class="pill" title="Collegiate Burgundy"><span class="dot" style="background:#6B1020;"></span>Collegiate Burgundy</span><span class="pill" title="Collegiate Green"><span class="dot" style="background:#1B5232;"></span>Collegiate Green</span><span class="pill" title="Collegiate Navy"><span class="dot" style="background:#1B2B4A;"></span>Collegiate Navy</span><span class="pill" title="Collegiate Purple"><span class="dot" style="background:#4B0082;"></span>Collegiate Purple</span><span class="pill" title="Collegiate Royal"><span class="dot" style="background:#1652B5;"></span>Collegiate Royal</span><span class="pill" title="Grey Three"><span class="dot" style="background:#AEAEAE;"></span>Grey Three</span><span class="pill" title="Light Flash Purple"><span class="dot" style="background:#B080D0;"></span>Light Flash Purple</span><span class="pill" title="Onix"><span class="dot" style="background:#777777;"></span>Onix</span><span class="pill" title="Power Red"><span class="dot" style="background:#CC2222;"></span>Power Red</span><span class="pill" title="Vivid Green"><span class="dot" style="background:#00B050;"></span>Vivid Green</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/adidas/a430" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="men">
+  <div class="iw">
+    <img src="assets/img/par702.jpg" alt="Men's Kitty Hawk Performance Long Sleeve Fishing Shirt" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Men's">M</span>
+    <span class="pt">$50</span>
+  </div>
+  <div class="body">
+    <div class="bl">Paragon</div>
+    <div class="nm">Men's Kitty Hawk Performance Long Sleeve Fishing Shirt</div>
+    <div class="sk">702</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span><span class="chip">4XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Aluminum"><span class="dot" style="background:#B0B8C0;"></span>Aluminum</span><span class="pill" title="Navy"><span class="dot" style="background:#1B2B4A;"></span>Navy</span><span class="pill" title="Blue Mist"><span class="dot" style="background:#A0C0D8;"></span>Blue Mist</span><span class="pill" title="Aqua Blue"><span class="dot" style="background:#40C0D0;"></span>Aqua Blue</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/paragon/702" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="men">
+  <div class="iw">
+    <img src="assets/img/par700.jpg" alt="Men's Hatteras Performance Short Sleeve Fishing Shirt" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Men's">M</span>
+    <span class="pt">$48</span>
+  </div>
+  <div class="body">
+    <div class="bl">Paragon</div>
+    <div class="nm">Men's Hatteras Performance Short Sleeve Fishing Shirt</div>
+    <div class="sk">700</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span><span class="chip">4XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Aluminum"><span class="dot" style="background:#B0B8C0;"></span>Aluminum</span><span class="pill" title="Navy"><span class="dot" style="background:#1B2B4A;"></span>Navy</span><span class="pill" title="Blue Mist"><span class="dot" style="background:#A0C0D8;"></span>Blue Mist</span><span class="pill" title="Aqua Blue"><span class="dot" style="background:#40C0D0;"></span>Aqua Blue</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/paragon/700" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="men">
+  <div class="iw">
+    <img src="assets/img/huk.jpg" alt="Men's Creekbed Pocket Long Sleeve Shirt" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Men's">M</span>
+    <span class="pt">$70</span>
+  </div>
+  <div class="body">
+    <div class="bl">HUK</div>
+    <div class="nm">Men's Creekbed Pocket Long Sleeve Shirt</div>
+    <div class="sk">H150184</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Marolina Blue"><span class="dot" style="background:#4B80C0;"></span>Marolina Blue</span><span class="pill" title="Moss"><span class="dot" style="background:#7A8A40;"></span>Moss</span><span class="pill" title="Naval Academy"><span class="dot" style="background:#1B2A4A;"></span>Naval Academy</span><span class="pill" title="Night Owl"><span class="dot" style="background:#252545;"></span>Night Owl</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/huk/h150184" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="women">
+  <div class="iw">
+    <img src="assets/img/a431.jpg" alt="Women's Performance Piqué Polo" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Women's">W</span>
+    <span class="pt">$45</span>
+  </div>
+  <div class="body">
+    <div class="bl">adidas</div>
+    <div class="nm">Women's Performance Piqué Polo</div>
+    <div class="sk">A431</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Collegiate Burgundy"><span class="dot" style="background:#6B1020;"></span>Collegiate Burgundy</span><span class="pill" title="Collegiate Green"><span class="dot" style="background:#1B5232;"></span>Collegiate Green</span><span class="pill" title="Collegiate Navy"><span class="dot" style="background:#1B2B4A;"></span>Collegiate Navy</span><span class="pill" title="Collegiate Purple"><span class="dot" style="background:#4B0082;"></span>Collegiate Purple</span><span class="pill" title="Collegiate Royal"><span class="dot" style="background:#1652B5;"></span>Collegiate Royal</span><span class="pill" title="Grey Three"><span class="dot" style="background:#AEAEAE;"></span>Grey Three</span><span class="pill" title="Light Flash Purple"><span class="dot" style="background:#B080D0;"></span>Light Flash Purple</span><span class="pill" title="Onix"><span class="dot" style="background:#777777;"></span>Onix</span><span class="pill" title="Power Red"><span class="dot" style="background:#CC2222;"></span>Power Red</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/adidas/a431" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="women">
+  <div class="iw">
+    <img src="assets/img/prm200.jpg" alt="Women's California Wave Wash Crewneck" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Women's">W</span>
+    <span class="pt">$35</span>
+  </div>
+  <div class="body">
+    <div class="bl">Independent Trading Co.</div>
+    <div class="nm">Women's California Wave Wash Crewneck</div>
+    <div class="sk">PRM200</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="Wave Wash Black"><span class="dot" style="background:#2A2A2A;"></span>Wave Wash Black</span><span class="pill" title="Wave Wash Navy"><span class="dot" style="background:#1B2B4A;"></span>Wave Wash Navy</span><span class="pill" title="Wave Wash Maroon"><span class="dot" style="background:#6B1020;"></span>Wave Wash Maroon</span><span class="pill" title="Wave Wash Teal"><span class="dot" style="background:#2A7070;"></span>Wave Wash Teal</span><span class="pill" title="Wave Wash Slate"><span class="dot" style="background:#5A6A7A;"></span>Wave Wash Slate</span></div></div>
+    <p class="pnote">Garment-dyed wave wash — each piece has a uniquely worn-in look. See product page for current colorway availability.</p>
+    <a class="vl" href="https://www.ssactivewear.com/p/independent_trading_co/prm200" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="women">
+  <div class="iw">
+    <img src="assets/img/exp15wpq.jpg" alt="Women's Perform Quarter-Zip Pullover" loading="lazy">
+    <span class="bd bd-emb">Embroidery</span>
+    <span class="gbadge" title="Women's">W</span>
+    <span class="pt">$30</span>
+  </div>
+  <div class="body">
+    <div class="bl">Independent Trading Co.</div>
+    <div class="nm">Women's Perform Quarter-Zip Pullover</div>
+    <div class="sk">EXP15WPQ</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Classic Navy"><span class="dot" style="background:#1B2B4A;"></span>Classic Navy</span><span class="pill" title="Pine"><span class="dot" style="background:#2A4A30;"></span>Pine</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/independent_trading_co/exp15wpq" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="women">
+  <div class="iw">
+    <img src="assets/img/nl6600.jpg" alt="Women's CVC Relaxed T-Shirt" loading="lazy">
+    <span class="bd bd-dtf">DTF</span>
+    <span class="gbadge" title="Women's">W</span>
+    <span class="pt">$12</span>
+  </div>
+  <div class="body">
+    <div class="bl">Next Level</div>
+    <div class="nm">Women's CVC Relaxed T-Shirt</div>
+    <div class="sk">6600</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Charcoal"><span class="dot" style="background:#454545;"></span>Charcoal</span><span class="pill" title="Dark Heather Gray"><span class="dot" style="background:#6A6A6A;"></span>Dark Heather Gray</span><span class="pill" title="Antique Gold"><span class="dot" style="background:#B8860B;"></span>Antique Gold</span><span class="pill" title="Heather Columbia Blue"><span class="dot" style="background:#8BBAD8;"></span>Heather Columbia Blue</span><span class="pill" title="Heather Mauve"><span class="dot" style="background:#C090A0;"></span>Heather Mauve</span><span class="pill" title="Military Green"><span class="dot" style="background:#4A5440;"></span>Military Green</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/next_level/6600" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<div class="card" data-gender="women">
+  <div class="iw">
+    <img src="assets/img/nl6610.jpg" alt="Women's CVC T-Shirt" loading="lazy">
+    <span class="bd bd-dtf">DTF</span>
+    <span class="gbadge" title="Women's">W</span>
+    <span class="pt">$10</span>
+  </div>
+  <div class="body">
+    <div class="bl">Next Level</div>
+    <div class="nm">Women's CVC T-Shirt</div>
+    <div class="sk">6610</div>
+    <div class="rl"></div>
+    <div class="ir"><span class="il">Sizes</span><div class="chips"><span class="chip">XS</span><span class="chip">S</span><span class="chip">M</span><span class="chip">L</span><span class="chip">XL</span><span class="chip">2XL</span><span class="chip">3XL</span></div></div>
+    <p class="size-note">Not all colors available in all sizes</p>
+    <div class="ir colors-ir"><span class="il">Colors</span><div class="color-cloud"><span class="pill" title="White"><span class="dot" style="background:#F8F8F5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);"></span>White</span><span class="pill" title="Black"><span class="dot" style="background:#1A1A1A;"></span>Black</span><span class="pill" title="Bondi Blue"><span class="dot" style="background:#0095AA;"></span>Bondi Blue</span><span class="pill" title="Raspberry"><span class="dot" style="background:#CC2255;"></span>Raspberry</span><span class="pill" title="Dusty Blue"><span class="dot" style="background:#7090A8;"></span>Dusty Blue</span></div></div>
+    
+    <a class="vl" href="https://www.ssactivewear.com/p/next_level/6610" target="_blank" rel="noopener">View on S&amp;S Activewear <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+</div>
+
+<footer>
+  &copy; 2026 Valiflo &nbsp;·&nbsp; Custom Apparel &nbsp;·&nbsp; Prices are per decorated item
+</footer>
+
+<script>
+function filter(g){
+  document.querySelectorAll('.ftab').forEach(function(t){t.classList.remove('active');});
+  document.querySelector('.ftab-'+g).classList.add('active');
+  var n=0;
+  document.querySelectorAll('.card').forEach(function(c){
+    var show=g==='all'||c.dataset.gender===g||c.dataset.gender==='unisex';
+    c.classList.toggle('hidden',!show);
+    if(show)n++;
+  });
+  var s=n===1?'style':'styles';
+  document.getElementById('count-bar').textContent=
+    g==='all'?'Showing all 13 styles':'Showing '+n+' '+s;
+}
+</script>
+</body>
+</html>
